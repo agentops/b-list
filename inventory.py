@@ -12,8 +12,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config["SECRET_KEY"] = os.getenv('SECRET_KEY')
 db.init_app(app=app)
 Bootstrap(app=app)
-# with app.app_context():
-#     db.create_all()
+with app.app_context():
+    db.create_all()
 
 @app.route("/")
 def index():
